@@ -1,0 +1,7 @@
+libdumbnet1:amd64=1.12-8
+libmspack0:amd64=0.10.1-1
+libxalan-c111=1.11-9
+libxerces-c3.2:amd64=3.2.2+debian-1+deb10u1
+libxml-security-c20:amd64=2.0.2-3
+open-vm-tools=2:10.3.10-1+deb10u3
+pciutils=1:3.5.2-1
