@@ -1,5 +1,5 @@
 /*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
+Copyright © 2023 Kevin Stevens <kevdog@github.com>
 */
 package cmd
 
@@ -21,16 +21,15 @@ import (
 )
 
 // manifestCmd represents the manifest command
+
 var manifestCmd = &cobra.Command{
-	Use:   "manifest",
-	Short: "Generate a manifest of files",
-	Long: `Generate a manifest of files in a directory.
+	Use:   "manifest -v <version> -d <directory>",
+	Short: "Create a csv manifest of files in a directory, sorted by dependency name",
+	Long: `Create a csv manifest for GHES of based on a directory of manifests, taking the union of the dependencies.
 For example:
 
-manifest --dir /path/to/directory`,
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("manifest called")
-		
+manifest --dir /path/to/directory --version 1.0.0`,
+	Run: func(cmd *cobra.Command, args []string) {	
 		resultsDir := manifestDir + "/results"
 		if err := os.MkdirAll(resultsDir, 0755); err != nil {
 			log.Fatal(err)
@@ -60,6 +59,7 @@ manifest --dir /path/to/directory`,
 		if err := writeLines(resultsDir+"/sorted.txt", lines); err != nil {
 			log.Fatal(err)
 		}
+		
 		lines, err = parseFile(resultsDir + "/sorted.txt")
 		if err != nil {
 			log.Fatal(err)
@@ -84,8 +84,6 @@ func init() {
 //createUnion iterates through the files in the directory and creates a union of the files
 
 func createUnion(dir string) ([]string, error) {
-	fmt.Println("createUnion called")
-
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
 		return nil, err
@@ -102,13 +100,11 @@ func createUnion(dir string) ([]string, error) {
 			lines = append(lines, fileLines...)
 		}
 	}
-
 	return lines, nil
 }
 
 // readLines reads a file and returns a slice of its lines
 func readLines(filePath string) ([]string, error) {
-	fmt.Println("readLines called")
 	file, err := os.Open(filePath)
 	if err != nil {
 		return nil, err
@@ -125,7 +121,6 @@ func readLines(filePath string) ([]string, error) {
 
 // writeLines writes a slice of lines to a file
 func writeLines(filePath string, lines []string) error {
-	fmt.Println("writeLines called")
 	file, err := os.Create(filePath)
 	if err != nil {
 		return err
@@ -141,13 +136,11 @@ func writeLines(filePath string, lines []string) error {
 
 // removeDuplicates removes duplicates from a slice of strings
 func removeDuplicates(filePath string) ([]string, error) {
-	// Read lines from output.txt
 	lines, err := readLines(filePath)
 	if err != nil {
 		return nil, err
 	}
 
-	// Remove duplicates
 	encountered := map[string]bool{}
 	result := []string{}
 
@@ -186,7 +179,7 @@ func parseFile(filePath string) ([]string, error) {
 		return nil, err
 	}
 
-	// Parse lines
+
 	var result []string
 	result = append(result, "Dependency,Version")
 	for _, line := range lines {
