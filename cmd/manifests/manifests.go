@@ -1,7 +1,7 @@
 /*
 Copyright © 2023 Kevin Stevens <kevdog@github.com>
 */
-package cmd
+package manifests
 
 import (
 	"bufio"
@@ -14,6 +14,7 @@ import (
 	"runtime"
 	"sort"
 	"strings"
+	
 
 	//	"sort"
 
@@ -22,7 +23,7 @@ import (
 
 // manifestCmd represents the manifest command
 
-var manifestCmd = &cobra.Command{
+var ManifestCmd = &cobra.Command{
 	Use:   "manifest -v <version> -d <directory>",
 	Short: "Create a csv manifest of files in a directory, sorted by dependency name",
 	Long: `Create a csv manifest for GHES of based on a directory of manifests, taking the union of the dependencies.
@@ -74,7 +75,7 @@ var manifestDir string
 var version string
 
 func init() {
-	rootCmd.AddCommand(manifestCmd)
+	// rootCmd.AddCommand(manifestCmd)
 	manifestCmd.Flags().StringVarP(&manifestDir, "dir", "d", "", "Directory of files to be processed")
 	manifestCmd.MarkFlagRequired("dir")
 	manifestCmd.Flags().StringVarP(&version, "version", "v", "", "Version of the manifest being processed")

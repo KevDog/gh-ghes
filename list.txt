@@ -1,0 +1,30 @@
+6641	OPEN	BeyondSoft Offboarding and Vendor Replacement Increases Quality Risk	risk	2023-06-03 02:08:37 +0000 UTC
+6630	OPEN	3.12 GA		2023-06-01 19:59:27 +0000 UTC
+6629	OPEN	3.11 GA		2023-06-01 19:51:23 +0000 UTC
+6628	OPEN	3.10 GA		2023-06-01 19:50:42 +0000 UTC
+6627	OPEN	3.12 Release Candidate		2023-06-01 17:58:56 +0000 UTC
+6626	OPEN	3.12 Code Freeze		2023-06-01 17:57:47 +0000 UTC
+6625	OPEN	3.12 Feature Freeze		2023-06-01 17:57:29 +0000 UTC
+6623	OPEN	3.11 Release Candidate		2023-06-01 14:20:20 +0000 UTC
+6622	OPEN	3.11 Code Freeze		2023-06-01 14:20:12 +0000 UTC
+6621	OPEN	3.11 Feature Freeze		2023-06-01 14:20:06 +0000 UTC
+6620	OPEN	3.10 Release Candidate		2023-06-01 14:17:50 +0000 UTC
+6619	OPEN	3.10 Code Freeze		2023-06-01 14:05:07 +0000 UTC
+6618	OPEN	3.10 Feature Freeze		2023-06-01 14:03:35 +0000 UTC
+6596	OPEN	[Epic] Improve the inner loop for developers to test GHES	epic, FY24Q1	2023-05-30 22:23:39 +0000 UTC
+6595	OPEN	[Epic] Upgrade Base OS to Ubuntu Focal to provide consistency for the platform by aligning with the rest of GitHub	epic	2023-05-30 21:41:01 +0000 UTC
+6594	OPEN	[Epic] Streamline the release process	epic, FY24Q1	2023-05-30 20:57:15 +0000 UTC
+6593	OPEN	[Epic] Enable developers to self-serve within the GHES release process	epic, FY24Q1	2023-05-30 20:58:54 +0000 UTC
+6592	OPEN	[Epic] Provide customers with more data by adding API(s) to ghe-manage	epic, FY24Q1	2023-05-30 22:24:44 +0000 UTC
+6590	OPEN	Decrease GHES downtime by reducing config-apply run time	Key Result, FY24Q1	2023-05-30 14:18:03 +0000 UTC
+6589	OPEN	Decrease GHES downtime by reducing the downtime for node management	Key Result, FY24Q1	2023-05-30 13:54:33 +0000 UTC
+6588	OPEN	Decrease GHES downtime by reducing the time to upgrade	Key Result, FY24Q1	2023-05-30 13:53:14 +0000 UTC
+6587	OPEN	Decrease GHES downtime by reducing backup and restore times	Key Result, FY24Q1	2023-05-30 13:51:26 +0000 UTC
+6411	OPEN	Resourcing may affect delivery of PPE environment work	risk	2023-05-10 18:11:20 +0000 UTC
+6386	OPEN	Improve customer ability to observe the health of their appliance	Key Result	2023-05-02 18:32:29 +0000 UTC
+6384	OPEN	Decrease the impact of migrations on the upgrade process.	Key Result	2023-06-02 14:23:43 +0000 UTC
+6383	OPEN	Improve customer ability to observe the health of their appliance	Key Result	2023-06-02 23:51:57 +0000 UTC
+6382	OPEN	Increase visibility for customers to understand the impact of the end-to-end upgrade process	on track, Key Result	2023-06-02 14:18:56 +0000 UTC
+6376	OPEN	Improve the quality of our documentation	Key Result	2023-05-26 15:14:46 +0000 UTC
+6375	OPEN	Improve the developer experience building for GHES	Key Result	2023-05-26 15:15:40 +0000 UTC
+6374	OPEN	Increase security posture via required upgrades (Base OS, Container OS, Upgrades, etc.	Key Result	2023-05-26 15:11:14 +0000 UTC
