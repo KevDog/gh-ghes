@@ -1,7 +1,7 @@
 /*
 Copyright © 2023 Kevin Stevens <kevdog@github.com>
 */
-package manifests
+package cmd
 
 import (
 	"bufio"
@@ -14,23 +14,22 @@ import (
 	"runtime"
 	"sort"
 	"strings"
-	
 
 	//	"sort"
 
 	"github.com/spf13/cobra"
 )
 
-// manifestCmd represents the manifest command
+// ManifestCmd represents the manifest command
 
-var ManifestCmd = &cobra.Command{
+var ManifestsCmd = &cobra.Command{
 	Use:   "manifest -v <version> -d <directory>",
 	Short: "Create a csv manifest of files in a directory, sorted by dependency name",
 	Long: `Create a csv manifest for GHES of based on a directory of manifests, taking the union of the dependencies.
 For example:
 
 manifest --dir /path/to/directory --version 1.0.0`,
-	Run: func(cmd *cobra.Command, args []string) {	
+	Run: func(cmd *cobra.Command, args []string) {
 		resultsDir := manifestDir + "/results"
 		if err := os.MkdirAll(resultsDir, 0755); err != nil {
 			log.Fatal(err)
@@ -60,7 +59,7 @@ manifest --dir /path/to/directory --version 1.0.0`,
 		if err := writeLines(resultsDir+"/sorted.txt", lines); err != nil {
 			log.Fatal(err)
 		}
-		
+
 		lines, err = parseFile(resultsDir + "/sorted.txt")
 		if err != nil {
 			log.Fatal(err)
@@ -75,11 +74,11 @@ var manifestDir string
 var version string
 
 func init() {
-	// rootCmd.AddCommand(manifestCmd)
-	manifestCmd.Flags().StringVarP(&manifestDir, "dir", "d", "", "Directory of files to be processed")
-	manifestCmd.MarkFlagRequired("dir")
-	manifestCmd.Flags().StringVarP(&version, "version", "v", "", "Version of the manifest being processed")
-	manifestCmd.MarkFlagRequired("version")
+	// rootCmd.AddCommand(ManifestCmd)
+	ManifestsCmd.Flags().StringVarP(&manifestDir, "dir", "d", "", "Directory of files to be processed")
+	ManifestsCmd.MarkFlagRequired("dir")
+	ManifestsCmd.Flags().StringVarP(&version, "version", "v", "", "Version of the manifest being processed")
+	ManifestsCmd.MarkFlagRequired("version")
 }
 
 //createUnion iterates through the files in the directory and creates a union of the files
@@ -180,7 +179,6 @@ func parseFile(filePath string) ([]string, error) {
 		return nil, err
 	}
 
-
 	var result []string
 	result = append(result, "Dependency,Version")
 	for _, line := range lines {
@@ -193,5 +191,3 @@ func parseFile(filePath string) ([]string, error) {
 
 	return result, nil
 }
-
-

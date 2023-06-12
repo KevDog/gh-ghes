@@ -20,7 +20,6 @@ import (
 	"os"
 
 	
-	"github.com/github/gh-ghes/cmd/manifests"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -29,7 +28,7 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
-	Use:   "gh-ghes",
+	Use:   "ghes",
 	Short: "A brief description of your application",
 	Long: `A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
@@ -53,7 +52,7 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(initConfig)
-	RootCmd.AddCommand(ManifestsCmd.ManifestsCmd)
+	RootCmd.AddCommand(ManifestsCmd)
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
@@ -78,7 +77,7 @@ func initConfig() {
 		// Search config in home directory with name ".gh-ghes" (without extension).
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
-		viper.SetConfigName(".gh-ghes")
+		viper.SetConfigName(".ghes")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match

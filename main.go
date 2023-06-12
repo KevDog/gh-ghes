@@ -15,7 +15,10 @@ limitations under the License.
 */
 package main
 
-import "github.com/KevDog/gh-ghes/cmd"
+import (
+	"github.com/KevDog/gh-ghes/cmd"
+	
+)
 
 func main() {
 	cmd.Execute()
